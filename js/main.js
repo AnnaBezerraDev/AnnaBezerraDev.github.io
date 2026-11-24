@@ -730,19 +730,34 @@ function initNavbar() {
 // ==========================================
 function initSoundToggle() {
   const btn = document.getElementById('soundToggle');
-  if (!btn) return;
+  const navBtn = document.getElementById('navSoundToggle');
 
-  btn.addEventListener('click', () => {
+  function updateIcons(muted) {
+    const iconHtml = muted
+      ? '<i class="fa-solid fa-volume-xmark"></i>'
+      : '<i class="fa-solid fa-volume-high"></i>';
+
+    [btn, navBtn].forEach(b => {
+      if (!b) return;
+      if (muted) {
+        b.classList.add('muted');
+      } else {
+        b.classList.remove('muted');
+      }
+      b.innerHTML = iconHtml;
+    });
+  }
+
+  function toggle() {
     sfx.muted = !sfx.muted;
-    if (sfx.muted) {
-      btn.classList.add('muted');
-      btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-    } else {
-      btn.classList.remove('muted');
-      btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    updateIcons(sfx.muted);
+    if (!sfx.muted) {
       sfx.playPop(800);
     }
-  });
+  }
+
+  if (btn) btn.addEventListener('click', toggle);
+  if (navBtn) navBtn.addEventListener('click', toggle);
 }
 
 // ==========================================

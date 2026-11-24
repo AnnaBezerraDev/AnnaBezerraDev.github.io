@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.2">
 </head>
 <body class="theme-dracula">
 
@@ -81,6 +81,9 @@
           <span class="pulse-dot"></span>
           <span>Aberta a oportunidades</span>
         </div>
+        <button id="navSoundToggle" class="nav-sound-btn" title="Alternar efeitos sonoros" aria-label="Alternar som">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
         <a href="https://github.com/AnnaBezerraDev" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-glass d-none-mobile" aria-label="GitHub de Anna">
           <i class="fa-brands fa-github"></i>
           <span>GitHub</span>
@@ -95,8 +98,9 @@
   <main>
     <!-- ======================== HERO SECTION ======================== -->
     <section class="hero-section" id="inicio">
-      <div class="container hero-grid">
-        <div class="hero-content" data-reveal="fade-right">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content" data-reveal="fade-right">
           <div class="badge-tag">
             <span class="badge-pulse"></span>
             <i class="fa-solid fa-code"></i>
@@ -237,7 +241,8 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- ======================== SOBRE MIM ======================== -->
     <section class="section about-section" id="sobre">
@@ -889,6 +894,6 @@ socket.on('novo_pedido', (pedido) => {
   </div>
 
   <!-- JavaScript -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2.2"></script>
 </body>
 </html>
