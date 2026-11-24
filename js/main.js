@@ -699,7 +699,8 @@ function initNavbar() {
   }, { passive: true });
 
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       sfx.playPop(550);
       navMenu.classList.toggle('open');
     });
@@ -712,6 +713,15 @@ function initNavbar() {
         navMenu.classList.remove('open');
       }
     });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('open')) {
+      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove('open');
+      }
+    }
   });
 }
 
